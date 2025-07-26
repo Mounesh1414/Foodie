@@ -1,0 +1,34 @@
+import { RxHome } from "react-icons/rx";
+import { BsExclamationCircle } from "react-icons/bs";
+import { IoIosContact } from "react-icons/io";
+import { BsCart } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+
+function Navbar() {
+    return (
+        <div className="header">
+            <Link to="/" className="logo-container">
+                <img className="logo" src="/foodie-logo.svg" alt="Foodie Logo" />
+            </Link>
+            
+            <div className="nav-links">
+                <Link to="/" className="ab"><RxHome />Home</Link>
+                <Link to="/about" className="ab"><BsExclamationCircle />About</Link>
+                <Link to="/contact" className="ab"><IoIosContact />Contact</Link>
+                <Link to="/cart" className="ab"><BsCart />Cart</Link>
+            </div>
+
+            <div className="auth-buttons">
+                <SignedOut>
+                    <SignInButton />
+                </SignedOut>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
+            </div>
+        </div>
+    );
+}
+
+export default Navbar;
